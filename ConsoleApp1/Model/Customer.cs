@@ -18,7 +18,7 @@ namespace ConsoleApp1.Model
 
         //[FieldConverter(ConverterKind.Date, "dd-MM-yyyy")]
         //public DateTime AddedDate;
-
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Age { get; set; }
         public string Sex { get; set; }
