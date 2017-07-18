@@ -31,14 +31,14 @@ namespace PeopleMatchesTests
         public void ImportDataFromCSV_WithInputString_OutputStringIsCustomerArray()
         {
             //Arrange
-            Customer[] customers = new Customer[]
+            var customers = new Customer[]
                 {
                     new Customer() { Name = "Pino", Age = "16", Sex = "male", BirthCity = "Genova"},
                     new Customer() { Name = "Anna", Age = "36", Sex = "female", BirthCity = "Alba"},
                     new Customer() { Name = "Giovanni", Age = "56", Sex = "male", BirthCity = "Amantea"}
                 };
 
-            FileHelperEngine<Customer> fileHelperCust = new FileHelperEngine<Customer>();
+            var fileHelperCust = new FileHelperEngine<Customer>();
             var mockReadFile = new Mock<ImportDataFromCSV>();
             mockReadFile
                 .Setup(o => o.CopyCSVFile("TestFile.csv"))
@@ -46,7 +46,6 @@ namespace PeopleMatchesTests
 
             //Act
             ImportDataFromCSV import = new ImportDataFromCSV();
-            
             Customer[] customersResult =  mockReadFile.Object.CopyCSVFile("TestFile.csv");
 
             //Assert
@@ -54,5 +53,7 @@ namespace PeopleMatchesTests
             Assert.AreEqual(customersResult[1].Name, "Anna");
             Assert.AreEqual(customersResult[2].Name, "Giovanni");
         }
+
+
     }
 }
